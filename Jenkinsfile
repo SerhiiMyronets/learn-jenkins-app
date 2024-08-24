@@ -23,8 +23,7 @@ pipeline {
                 echo 'Test stage'
                 sh '''
                     test -f build/index.html
-                    ls -la
-                    npm -version
+                    npm test
                 '''
             }
         }
