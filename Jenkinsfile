@@ -24,7 +24,7 @@ pipeline {
                         aws s3 ls
                         echo 'Hello S3!' > s3.txt
                         aws s3 cp s3.txt s3://serhiibucket/udemy_jenkins
-                    ''''
+                    '''
                 }
 
             }
