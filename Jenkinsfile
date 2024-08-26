@@ -18,7 +18,11 @@ pipeline {
                 }
             }
             steps {
-                sh 'aws --version'
+                withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
+                    sh 'aws --version'
+                    sh 'aws s3 ls'
+                }
+
             }
         }
 
