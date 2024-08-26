@@ -17,13 +17,16 @@ pipeline {
                     args "--entrypoint=''"
                 }
             }
+            environment {
+                S3_BUCKET = serhiibucket/udemy_jenkins
+            }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
                         aws --version
                         aws s3 ls
                         echo 'Hello S3!' > s3.txt
-                        aws s3 cp s3.txt s3://serhiibucket/udemy_jenkins/
+                        aws s3 cp s3.txt s3://$S3_BUCKET/s3.txt
                     '''
                 }
 
