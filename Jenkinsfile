@@ -41,13 +41,13 @@ pipeline {
                 }
             }
             environment {
-                S3_BUCKET = 'serhiibucket'
+                S3_BUCKET = 'learn-jenkins-app-serhii'
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
                         aws --version
-                        aws s3 sync build s3://$S3_BUCKET/web-app
+                        aws s3 sync build s3://$S3_BUCKET/
                     '''
                 }
             }
