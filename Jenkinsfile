@@ -60,7 +60,7 @@ pipeline {
                         }
                     }
                 }
-                stage('E2E'){
+                stage('Local E2E'){
                     agent {
                         docker {
                             image 'my-playwright'
@@ -71,7 +71,7 @@ pipeline {
                         sh '''
                             npm install serve
                             serve -s build &
-                            sleep 5
+                            sleep 10
                             npx playwright test --reporter=html
                         '''
                     }
