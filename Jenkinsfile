@@ -18,7 +18,7 @@ pipeline {
                 }
             }
             environment {
-                S3_BUCKET = serhiibucket/udemy_jenkins
+                S3_BUCKET = 'serhiibucket/udemy_jenkins'
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aws-cli', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
